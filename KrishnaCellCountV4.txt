@@ -1,0 +1,11 @@
+run("16-bit");
+setAutoThreshold("Default dark");
+//run("Threshold...");
+setThreshold(40, 255);
+setOption("BlackBackground", false);
+run("Convert to Mask");
+run("Despeckle");
+run("Remove Outliers...", "radius=5 threshold=1 which=Dark");
+run("Convert to Mask");
+run("Watershed");
+run("Analyze Particles...", "size=20-1000 circularity=0.00-1.00 show=Ellipses display summarize");
